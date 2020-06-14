@@ -120,7 +120,7 @@ class ImageStory extends React.Component {
 
 
   getStyles() {
-    let { width, height, rootStyle = {}} = this.props;
+    let { width, height, rootStyle = {}, imageStyle = {}} = this.props;
 
     let styles = {
       root: {
@@ -131,11 +131,11 @@ class ImageStory extends React.Component {
       },
       img: {
         boxSizing: 'border-box',
-        border: 'solid 2px #fff',
         float: 'left',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
+        ...imageStyle,
       },
       more: {
         width: '100%',
@@ -164,6 +164,7 @@ ImageStory.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   rootStyle: PropTypes.object,
+  imageStyle: PropTypes.object,
   onImageSelect: PropTypes.func,
   onLoad: PropTypes.func,
 }
